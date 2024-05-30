@@ -1,25 +1,60 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState, useEffect} from 'react';
+import './index.css';
+import NewToDoForm from './components/NewToDoForm';
+import ToDoItem from './components/ToDoItem';
 
 function App() {
+  const [newItem, setNewItem] = useState("");
+  const [todos, setTodos] = useState(() => {
+    const localValue = localStorage.getItem("ITEMS");
+    if (localValue === null) {
+      return []
+    } else {
+      return JSON.parse(localValue)
+    }
+  });
+
+  useEffect(() => {
+    localStorage.setItem("ITEMS", JSON.stringify(todos))
+  }, [todos])
+
+  function hundleSubmit(event) {
+    event.preventDefault();
+    setTodos([...todos, {
+      id: crypto.randomUUID(), 
+      title: newItem, 
+      completed: false
+    }])
+    setNewItem("")
+  }
+
+  function toggleTodo(id, completed) {
+    setTodos((currentTodos) => {
+      return currentTodos.map((todo) => {
+        if (todo.id === id) {
+          return {...todo, completed}
+        } else {
+          return todo
+        }
+      })
+    })
+  }
+
+  function deleteTodo(id) {
+    setTodos((currentTodos) => {
+       return currentTodos.filter((todo) => (todo.id !== id))
+    })
+  }
+
+  console.log(todos);
+  console.log(newItem)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NewToDoForm  newItem={newItem} setNewItem={setNewItem} hundleSubmit={hundleSubmit}/>
+      <h1 className='header'>Todo List</h1>
+      <ToDoItem  todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo}/>
     </div>
-  );
+  )
 }
 
 export default App;

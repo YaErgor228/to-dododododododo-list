@@ -1,70 +1,30 @@
-# Getting Started with Create React App
+## Сайт-список дел
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+На сайте можно делать замеки дел которые тебе надо выполнить.
+Для эттого в синее поле введи "название дела" которое нужно впоследствии выполнить инажать кнопку "Add" или Enter.
+Ты можешь при помощи чекбокса отмечать сделанные дела и удалять при помощи кнопки те которые тебе нужно было выполнить только 1 раз.
 
-## Available Scripts
+## Как запустить
 
-In the project directory, you can run:
+Для запуска нужно:
+1.Скачать проект.
+2.Открыть консоль и перйти в папку с проектом.
+3.Прописать команду "npm start".
+4.Высветится ссылка "http://localhost:3000". Перейдите по этой ссылке.
 
-### `npm start`
+## Как редактировать
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Вся основная начинка "начинка" сайта находится в папке src. Запускается сайт при помощи файла index.js, он отрисовывает файл App.js в котором находится основная логика сайта.
+Вот все функции, переменные и хуки которые содержатся App.js:
+toggleTodo переключает чекбокс. Активируется при начатии на чекбокс.
+deleteTodo удаляет заметку. Активируется при нажатии на кнопку Delete. 
+hundleSubmit добавляет новую заметку с названием которое было напечатано в форме. Активируется при нажатии на кнопку Add.
+newItem, setNewItem хранит название для замеки вбитое в форму.
+todos, setTodos хранит все ранее созданые заметки. При создании программы записывает данные сначала из localStorage(при помощи localStorage ) в переменную localValue, а после из переменной localValue в todos.
+useEffect записывает данные из todos в localStorage.
+При помощи файла NewToDoForm.jsx отрисовывается форма для ввода названия заметки, а ToDoItem.jsx отрисовывает заметки которые ты ввёл ранее.
+В index.css хранятся стили для App.js.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Цель пректа
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Проект создан в образовательных целях учеником школы "Третье место".
