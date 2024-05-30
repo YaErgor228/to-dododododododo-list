@@ -45,9 +45,7 @@ function App() {
        return currentTodos.filter((todo) => (todo.id !== id))
     })
   }
-
-  console.log(todos);
-  console.log(newItem)
+  
   return (
     <div className="App">
       <NewToDoForm  newItem={newItem} setNewItem={setNewItem} hundleSubmit={hundleSubmit}/>
